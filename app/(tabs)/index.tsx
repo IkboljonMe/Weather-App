@@ -7,8 +7,10 @@ import moment from 'moment-timezone';
 import SearchInput from '@/components/searchinput';
 import CustomButton from '@/components/custombutton';
 import Viewmore from '@/components/viewmore';
-import { getImage, getIcon }from '@/scripts/getImageForWeather';
+import { getImage, getIcon } from '@/scripts/getImageForWeather';
 import { fetchLocationId, fetchWeather } from '@/scripts/api';
+import { useRouter } from 'expo-router';
+import ProfileButton from '@/components/ProfileButton';
 
 export default function HomeScreen() {
   const [loading, setLoading] = useState(false);
@@ -36,8 +38,10 @@ export default function HomeScreen() {
   const [refreshing, setRefreshing] = useState(false);
   const [isFirstUse, setIsFirstUse] = useState(false);
   const [expandedDays, setExpandedDays] = useState({});
-
-
+  const router = useRouter();
+  const goToProfile = () => {
+    router.push('/profile'); // Adjust the path according to your folder structure
+  };
   useEffect(() => {
     checkFirstUse();
   }, []);
@@ -119,18 +123,15 @@ export default function HomeScreen() {
     }));
   };
 
-
-
   const windDirections = [
     'North', 'North-Northeast', 'Northeast', 'East-Northeast', 'East', 'East-Southeast', 'Southeast', 'South-Southeast',
     'South', 'South-Southwest', 'Southwest', 'West-Southwest', 'West', 'West-Northwest', 'Northwest', 'North-Northwest'
   ];
-  
+
   const getWindDirection = (degree) => {
     const index = Math.round(degree / 22.5) % 16;
     return windDirections[index];
   };
-  
 
   useEffect(() => {
     if (isFirstUse) {
@@ -204,9 +205,9 @@ export default function HomeScreen() {
       >
         <Text style={styles.forecastDate}>{item.date}</Text>
         <Text style={styles.forecastTemp}>{`${Math.round(item.temp)}°C`}</Text>
-        <Image source={getIcon(item.conditions)} style={{width:35,height:35}}/>
+        <Image source={getIcon(item.conditions)} style={{ width: 35, height: 35 }} />
         <Text style={styles.forecastConditions}>{item.conditions}</Text>
-        <Text style={[styles.forecastDetails,styles.forecastwind]}>{"Wind Speed "+item.windSpeed} Km/h</Text>
+        <Text style={[styles.forecastDetails, styles.forecastwind]}>{"Wind Speed " + item.windSpeed} Km/h</Text>
         <Text style={styles.forecastDetails}>Humidity {item.humidity}%</Text>
         <Text style={styles.forecastDetails}>Precipitation {item.precipProb || 0}%</Text>
         {isExpanded && (
@@ -235,7 +236,7 @@ export default function HomeScreen() {
         <Text style={styles.hourlyTime}>{formattedTime}</Text>
         <Text style={styles.hourlyTemp}>{`${Math.round(item.temp)}°C`}</Text>
         <View style={styles.weatherContainer}>
-        <Image source={getIcon(item.conditions)} style={{width:30,height:30}}/>
+          <Image source={getIcon(item.conditions)} style={{ width: 30, height: 30 }} />
         </View>
         <Text style={styles.hourlyCondition}>{item.conditions}</Text>
         <Text style={styles.hourlyhumidity}>Humidity {item.humidity}</Text>
@@ -257,6 +258,9 @@ export default function HomeScreen() {
           imageStyle={styles.image}
         >
           <View style={styles.detailsContainer}>
+            <TouchableOpacity onPress={goToProfile}>
+              <ProfileButton />
+            </TouchableOpacity>
             <ActivityIndicator animating={loading} color="white" size="large" />
             {!loading && (
               <View>
@@ -271,8 +275,8 @@ export default function HomeScreen() {
                     <Text style={[styles.mediumText, styles.textStyle]}>{resolvedAddress}</Text>
                     <Text style={[styles.smallmodText, styles.textStyle]}>{currentTime}</Text>
                     <View style={styles.weatherContainer}>
-                    <Image source={getIcon(weather)} style={styles.mainweather}/>
-                      <Text style={[styles.moderatetext, styles.textStyle]}>{" "+" "}{weather}</Text>
+                      <Image source={getIcon(weather)} style={styles.mainweather} />
+                      <Text style={[styles.moderatetext, styles.textStyle]}>{" " + " "}{weather}</Text>
                     </View>
                     <Text style={[styles.largeText, styles.textStyle]}>
                       {`${Math.round(temperature)}°C`}
@@ -298,7 +302,7 @@ export default function HomeScreen() {
                         </Text>
                         <Text style={[styles.smallText, styles.textStyle]}>UV Index {uvindex}</Text>
                         <Text style={[styles.smallText, styles.textStyle]}>
-                        Wind Direction {getWindDirection(winddir)}
+                          Wind Direction {getWindDirection(winddir)}
                         </Text>
                         <Text style={[styles.smallText, styles.textStyle]}>
                           Sunrise {moment(sunrise, 'HH:mm').format('hh:mm A')}
@@ -358,9 +362,9 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     backgroundColor: '#fff',
-    
+
   },
-  weathericon:{
+  weathericon: {
     width: 50,
     height: 50,
   },
@@ -369,7 +373,7 @@ const styles = StyleSheet.create({
     alignItems: 'center', // Centers items vertically
     justifyContent: 'center', // Centers items horizontally
   },
- 
+
   textStyle: {
     textAlign: 'center',
     fontFamily: Platform.OS === 'android' ? 'Roboto' : 'AvenirNext-Regular',
@@ -379,24 +383,24 @@ const styles = StyleSheet.create({
     fontSize: 44,
   },
   smallText: {
-marginTop:5,
+    marginTop: 5,
     fontSize: 18,
 
   },
-  mediumText:{
-    marginTop:5,
+  mediumText: {
+    marginTop: 5,
     fontSize: 22,
-    textAlign:"left",
+    textAlign: "left",
     fontFamily: Platform.OS === 'android' ? 'Roboto' : 'AvenirNext-Regular',
     color: 'white',
 
   },
-  moderatetext:{
-    fontSize:25,
-    marginTop:10,
+  moderatetext: {
+    fontSize: 25,
+    marginTop: 10,
   },
-  smallmodText:{
-    fontSize:20,
+  smallmodText: {
+    fontSize: 20,
   },
   imageContainer: {
     flex: 1,
@@ -418,37 +422,37 @@ marginTop:5,
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop:'10%',
+    marginTop: '10%',
   },
   forecastContainer: {
     paddingVertical: 20,
-    color:'white',    
+    color: 'white',
   },
-  forecastwind:{
-marginTop:5,
+  forecastwind: {
+    marginTop: 5,
   },
 
   forecastItem: {
     marginHorizontal: 10,
     alignItems: 'center',
     borderRadius: 8,
-    width:210,
-    color:'white',
-   // backgroundColor: 'rgba(0,0,0,0.1)',
-    
+    width: 210,
+    color: 'white',
+    // backgroundColor: 'rgba(0,0,0,0.1)',
+
   },
-  mainweather:{
-    width:40,
-    height:40,
+  mainweather: {
+    width: 40,
+    height: 40,
 
   },
   expandedItem: {
     backgroundColor: 'rgba(211, 211, 211, 0.2)', // Darker gray for expanded state
   },
   forecastDate: {
-    marginTop:10,
+    marginTop: 10,
     fontSize: 18,
-    color:'white',
+    color: 'white',
   },
   forecastTemp: {
     fontSize: 24,
@@ -461,8 +465,8 @@ marginTop:5,
   forecastDetails: {
     fontSize: 16,
     color: 'white',
-    textAlign:'center',
-    
+    textAlign: 'center',
+
   },
   hourlyForecastContainer: {
     paddingVertical: 20,
@@ -489,12 +493,12 @@ marginTop:5,
     color: '#fff',
   },
   hourlyhumidity: {
-marginTop:5,
+    marginTop: 5,
     fontSize: 14,
     color: '#fff',
   },
   additionalDetails: {
-  
+
   },
   detailText: {
     color: 'white',
