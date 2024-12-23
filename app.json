@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "my-app",
-    "slug": "my-app",
+    "slug": "simple-weather-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/adptiveIcon.png",
@@ -44,8 +44,9 @@
         "origin": false
       },
       "eas": {
-        "projectId": "5ef1900a-6006-4714-adc1-9aa4e92b73c9"
+        "projectId": "dadcf397-9777-45b3-b16e-c1a06b8e3ed5"
       }
-    }
+    },
+    "owner": "ikboljonme"
   }
 }

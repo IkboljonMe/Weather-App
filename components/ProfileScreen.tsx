@@ -10,8 +10,8 @@ const ProfileScreen = () => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Creator Credentials</Text>
-            <Text>Name: Your Name</Text>
-            <Text>Email: your.email@example.com</Text>
+            <Text>Name: Farid Rahimzada Student ID: 37858</Text>
+            <Text>Simple Weather App where you can see weather info</Text>
         </View>
     );
 };
