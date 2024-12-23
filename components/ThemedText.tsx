@@ -1,3 +1,9 @@
+// II. Components and Styling: Implemented ThemedText component for reusable styled text with theme support.
+// III. Overview of basic components: Utilized Text component to display themed text.
+// V. State Management and Context API: Integrated useThemeColor hook to manage text color based on the current theme.
+// IV. Event handling and creating a simple user interface: Supported multiple text types (e.g., title, subtitle) for flexible UI design.
+
+
 import { Text, type TextProps, StyleSheet } from 'react-native';
 
 import { useThemeColor } from '@/hooks/useThemeColor';

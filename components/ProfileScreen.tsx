@@ -1,4 +1,8 @@
-// ProfileScreen.js
+// II. Components and Styling: Implemented the ProfileScreen component demonstrating basic component creation.
+// III. Overview of basic components: Utilized View and Text components for layout and display.
+// IV. Event handling and creating a simple user interface: Basic UI layout established for user credentials display.
+// V. State Management and Context API: Potential to integrate state management (not shown here).
+
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
@@ -8,7 +12,6 @@ const ProfileScreen = () => {
             <Text style={styles.title}>Creator Credentials</Text>
             <Text>Name: Your Name</Text>
             <Text>Email: your.email@example.com</Text>
-            {/* Add more credentials as needed */}
         </View>
     );
 };

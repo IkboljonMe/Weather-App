@@ -1,3 +1,5 @@
+//VII Animations and Visual Effects (react-native-reanimated) additonal package
+
 import { StyleSheet } from 'react-native';
 import Animated, {
   useSharedValue,

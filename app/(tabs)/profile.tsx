@@ -1,12 +1,17 @@
-// app/(tabs)/Profile.tsx
+// II. Components and Styling: Implemented Profile component to display creator information with animated entry.
+// III. Overview of basic components: Used Animated.View for creating a fade-in effect on component mount.
+// IV. Event handling and creating a simple user interface: Included back navigation functionality with a TouchableOpacity button.
+// VI. Layout and Positioning: Organized layout using flexbox to center content.
+// VIII. User Experience: Improved user experience with a fade-in animation and clear back navigation option.
+
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Animated } from 'react-native';
-import { useNavigation } from 'expo-router'; // Ensure you have this import for navigation
+import { useNavigation } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 
 const Profile = () => {
     const navigation = useNavigation();
-    const fadeAnim = new Animated.Value(0); // Initial opacity of 0
+    const fadeAnim = new Animated.Value(0);
 
     // Animate opacity on component mount
     React.useEffect(() => {
