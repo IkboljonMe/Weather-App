@@ -1,50 +1,72 @@
-# Weather App
+# Simple Weather App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is a university project by [Student Name] [Student Surname] (ID: [Student ID]).
 
-## Get started
+## Get Started
 
-1. Install dependencies
+1. **Install dependencies**
 
    ```bash
    npm install
    ```
 
-2. Start the app
+2. **Start the app**
 
    ```bash
-    npx expo start
+   npx expo start
    ```
 
-3. Go and Register in (https://visualcrossing.com/) in Account get API key and put in /script/api.js in const API_KEY="Your API Key"
+   Or use if you cannot see app on your Phone
 
-4. Run whether for any dependancy problems before build
    ```bash
-    expo doctor
+   npx expo start --tunnel
    ```
-5. Sign Up for (https://expo.dev/)
 
-6. Build
+3. **Register for an API key**  
+   Go to [Visual Crossing](https://visualcrossing.com/) to create an account and get your API key. Place your API key in `/script/api.js` like this:  
+   `const API_KEY = "Your API Key";`
+
+4. **Check for dependency issues**  
+   Run the following command before building your app:
+
    ```bash
-    eas build
+   npx expo doctor
    ```
-7. Build for Andriod platform
+
+5. **Sign Up for Expo**  
+   Go to [Expo](https://expo.dev/) and sign up for an account.
+
+6. **Build the app**
+
    ```bash
-    eas build -p android
+   eas build
    ```
 
-In the output, you'll find options to open the app in a
+   If you do not install eas before:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+   ```bash
+   npm install -g eas-cli
+   ```
+
+7. **Build for Android platform**
+   ```bash
+   eas build -p android
+   ```
+
+In the output, you'll find options to open the app in a:
+
+- [Development build](https://docs.expo.dev/develop/development-builds/introduction/)
 - [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
 - [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
 - [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction/).
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Resources
 
-## Resources I got usefull
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
+- [Expo documentation](https://docs.expo.dev/): Learn fundamentals or go into advanced topics with our [guides](https://docs.expo.dev/guides).
 - [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+
+## Requirements
+
+Here is [`REQUIREMENTS.md`](github.com) file for a detailed list of requirements from the professor, including which requirements have been implemented in the project.
