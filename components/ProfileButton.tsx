@@ -5,8 +5,7 @@
 
 import React from 'react';
 import { View, Text } from 'react-native';
-import { FontAwesome } from 'react-native-vector-icons';
-
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 const ProfileButton = () => {
     return (
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>

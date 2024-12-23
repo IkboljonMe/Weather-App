@@ -4,8 +4,12 @@
 
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+interface ViewButtonProps {
+  title: String;
+  onPress: () => void
+}
 
-export default function viewbutton({ title, onPress }) {
+const ViewButton: React.FC<ViewButtonProps> = ({ title, onPress }) => {
   return (
     <TouchableOpacity onPress={onPress} style={[styles.button]}>
       <Text style={styles.buttonText}>{title}</Text>
@@ -25,3 +29,4 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
 });
+export default ViewButton

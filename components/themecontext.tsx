@@ -22,8 +22,10 @@ export const ThemeContext = createContext({
   theme: lightTheme,
   toggleTheme: () => { },
 });
-
-export default function ThemeProvider({ children }) {
+interface ThemeProviderProps {
+  children: React.ReactNode;
+}
+const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const [theme, setTheme] = useState(lightTheme);
 
   const toggleTheme = () => {
@@ -38,3 +40,4 @@ export default function ThemeProvider({ children }) {
     </ThemeContext.Provider>
   );
 };
+export default ThemeProvider

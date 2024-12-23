@@ -4,9 +4,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Location from 'expo-location';
 import moment from 'moment-timezone';
 
-import SearchInput from '@/components/searchinput';
+import SearchInput from '@/components/SearchInput';
 import CustomButton from '@/components/CustomButton';
-import Viewmore from '@/components/viewmore';
+import Viewmore from '@/components/ViewMore';
 import { getImage, getIcon } from '@/scripts/getImageForWeather';
 import { fetchLocationId, fetchWeather } from '@/scripts/api';
 import { useRouter } from 'expo-router';

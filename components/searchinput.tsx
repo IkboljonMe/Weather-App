@@ -7,10 +7,13 @@
 import React, { useState } from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
 import PropTypes from 'prop-types';
+interface SearchInputProps {
+  placeholder?: string;
+  onSubmit: (text: string) => void; // Define the onSubmit type as a function
+}
 
 
-
-export default function searchinput({ placeholder, onSubmit }) {
+const SearchInput: React.FC<SearchInputProps> = ({ placeholder, onSubmit }) => {
   const [text, setText] = useState('');
 
   const handleChangeText = (newText: string) => {
@@ -41,7 +44,7 @@ export default function searchinput({ placeholder, onSubmit }) {
   );
 
 };
-searchinput.propTypes = {
+SearchInput.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
 };
@@ -65,3 +68,4 @@ const styles = StyleSheet.create({
   },
 
 });
+export default SearchInput
