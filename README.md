@@ -1,6 +1,6 @@
 # Simple Weather App
 
-This is a university project by [Student Name] [Student Surname] (ID: [Student ID]).
+This is a university project by Farid Rahimzada (ID: 37858).
 
 ## Get Started
 
@@ -66,7 +66,3 @@ You can start developing by editing the files inside the **app** directory. This
 
 - [Expo documentation](https://docs.expo.dev/): Learn fundamentals or go into advanced topics with our [guides](https://docs.expo.dev/guides).
 - [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Requirements
-
-Here is [`REQUIREMENTS.md`](github.com) file for a detailed list of requirements from the professor, including which requirements have been implemented in the project.
