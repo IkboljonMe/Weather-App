@@ -29,10 +29,10 @@ const Profile = () => {
                 <Text style={styles.backButtonText}>Back</Text>
             </TouchableOpacity>
             <Text style={styles.title}>About the Creator</Text>
-            <Text style={styles.info}>Name: Ikboljon Abdurasulov</Text>
-            <Text style={styles.info}>Student ID: 12345678</Text>
+            <Text style={styles.info}>Name: Farid Rahimzada</Text>
+            <Text style={styles.info}>Student ID: 37858</Text>
             <Text style={styles.description}>
-                This project is an application for recognizing people in video files using the YOLO library. It aims to provide real-time object detection and labeling capabilities for educational purposes.
+                This project is an application to show weather in real time.It is for educational purposes.
             </Text>
         </Animated.View>
     );
